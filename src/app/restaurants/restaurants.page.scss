@@ -1,0 +1,51 @@
+#container {
+  width: 100%; /* La largeur de 100% de la largeur parente */
+  max-width: 600px; /* Limitez la largeur si nécessaire */
+  margin: 0 auto; /* Centrez le contenu */
+  margin-bottom: 150px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ripple-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.5);
+  user-select: none;
+}
+
+.rounded-rectangle {
+  width: 50%;
+  height: 75px;
+  border-radius: 8px;
+  margin-right: 10px; /* Ajoutez la marge à droite du premier bloc */
+  margin-left: 10px;
+}
+
+.div{
+  margin-bottom: 10px;
+}
+
+.cercle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Ajustez la taille du cercle selon vos besoins */
+  height: 60px; /* Ajustez la taille du cercle selon vos besoins */
+  background-color: darkgray; /* Couleur de fond du cercle */
+  border-radius: 50%; /* Bordure pour créer un cercle */
+  margin-right: 10px;
+}
+
+.icon {
+  font-size: 2em; /* Ajustez la taille de l'icône selon vos besoins */
+  color: white; /* Couleur de l'icône */
+}

@@ -3,6 +3,11 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+  // ion-content {
+  //   --background: url('../assets/wallpapers/bateau-accueil.jpg') no-repeat center center / cover;
+  // }
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -236,7 +241,7 @@
 }
 
 html {
-  /* 
+  /*
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
