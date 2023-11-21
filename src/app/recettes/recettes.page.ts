@@ -13,8 +13,6 @@ export class RecettesPage implements OnInit {
   ngOnInit() {
   }
 
-
-
   onGoToBar() {
     this.router.navigate(['/bar'])
   }
