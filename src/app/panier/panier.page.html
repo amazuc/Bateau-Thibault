@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton d'accueil -->
+    <ion-buttons slot="start">
+      <ion-button (click)="onGoToHome()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Image centrée -->
+    <ion-title>
+      <h1 class="ion-text-center">Le bateau de Thibault</h1>
+    </ion-title>
+
+    <!-- Lien vers le panier à droite -->
+    <ion-buttons slot="end">
+      <ion-button (click)="onGoToPanier()">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-row class="separator"></ion-row>
+
+  <ion-toolbar class="ion-text-center">
+    <h2>Panier</h2>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ng-container *ngFor="let article of articles">
+      <ion-item *ngIf="article.quantite > 0" (click)="modifierQuantite(article.id)">
+        <div class="cercle">
+          <ion-icon name="fish-outline" class="icon"></ion-icon>
+        </div>
+        <ion-label>
+          <h2>{{ article.name }}</h2>
+          <p>Quantité: {{ article.quantite }}</p>
+          <p>Prix: {{ article.price }} €</p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item>
+    <ion-label>Prix total des articles:</ion-label>
+    <ion-text slot="end">{{ calculerPrixTotal() }} €</ion-text>
+  </ion-item>
+
+  <ion-item (click)="ouvrirLieuLivraison()">
+    <ion-label>Lieu de livraison:</ion-label>
+    <ion-text slot="end">
+      <ng-container *ngIf="lieuLivraison === 0; else lieuSelected">
+        Cliquez pour choisir le lieu de livraison
+      </ng-container>
+      <ng-template #lieuSelected>{{ getLieu(lieuLivraison) }}</ng-template>
+    </ion-text>
+  </ion-item>
+
+
+  <ion-item (click)="ouvrirDateLivraison()">
+    <ion-label>Date de livraison:</ion-label>
+    <ion-text slot="end">
+      <ng-container *ngIf="dateLivraison === '' && heureLivraison ===''; else dateSelected">
+        Cliquez pour choisir la date de livraison
+      </ng-container>
+      <ng-template #dateSelected>Le {{ getDate() }}, à partir de {{ heureLivraison }}</ng-template>
+    </ion-text>
+  </ion-item>
+
+  <ion-button expand="full" (click)="afficherAlerteValiderPanier()" [disabled]="calculerPrixTotal() === '0.00'">Valider
+    votre panier</ion-button>
+
+</ion-content>

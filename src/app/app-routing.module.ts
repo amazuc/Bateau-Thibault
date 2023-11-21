@@ -87,7 +87,14 @@ const routes: Routes = [
     path: 'recette',
     loadChildren: () => import('./listeRecettes/recette/recette.module').then( m => m.RecettePageModule)
   },
-
+  {
+    path: 'panier',
+    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+  },
+  {
+    path: 'produit/:id',
+    loadChildren: () => import('./detail-produits/detail-produits.module').then( m => m.DetailProduitsPageModule)
+  }
 
 ];
 

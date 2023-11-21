@@ -16,4 +16,12 @@ export class ProduitsPage implements OnInit {
   onGoToHome() {
     this.router.navigate(['/home'])
   }
+
+  onGoToPanier(){
+    this.router.navigate(['/panier'])
+  }
+
+  onGoToDetail(idProduit: number) {
+    this.router.navigate(['/produit/' + idProduit])
+  }
 }

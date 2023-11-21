@@ -14,7 +14,7 @@
 
     <!-- Lien vers le panier à droite -->
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="onGoToPanier()">
         <ion-icon slot="icon-only" name="cart"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -25,7 +25,7 @@
 <ion-content>
   <h2 class="ion-text-center">Choisissez vos produits</h2>
 
-  <div class="wrapper">
+  <div class="wrapper" (click)="onGoToDetail(0)">
     <div class="ion-activatable ripple-parent rounded-rectangle">
       <div class="cercle">
         <ion-icon name="boat-outline" class="icon"></ion-icon>
@@ -36,7 +36,7 @@
 
   </div>
 
-  <div class="wrapper">
+  <div class="wrapper" (click)="onGoToDetail(1)">
     <div class="ion-activatable ripple-parent rounded-rectangle">
       <div class="cercle">
         <ion-icon name="boat-outline" class="icon"></ion-icon>
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div class="wrapper">
+  <div class="wrapper" (click)="onGoToDetail(2)">
     <div class="ion-activatable ripple-parent rounded-rectangle">
       <div class="cercle">
         <ion-icon name="boat-outline" class="icon"></ion-icon>
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div class="wrapper">
+  <div class="wrapper" (click)="onGoToDetail(3)">
     <div class="ion-activatable ripple-parent rounded-rectangle">
       <div class="cercle">
         <ion-icon name="boat-outline" class="icon"></ion-icon>
