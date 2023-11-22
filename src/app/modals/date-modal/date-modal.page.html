@@ -1,23 +1,23 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>
-            Date
-        </ion-title>
-        <ion-buttons slot="end">
-            <ion-button (click)="close()">
-                <ion-icon name="close"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Date
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-    <div class="modal-content">
-        <ion-item>
-            <ion-label>Date et Heure</ion-label>
-            <ion-datetime display-format="DD/MM/YYYY HH:mm" picker-format="DD/MM/YYYY HH:mm"
-                [(ngModel)]="selectedDateTime"></ion-datetime>
-        </ion-item>
-    </div>
-    <ion-button expand="full" (click)="valider()">Valider</ion-button>
+  <div class="modal-content">
+    <ion-item>
+      <ion-label>Date et Heure</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY HH:mm" picker-format="DD/MM/YYYY HH:mm"
+        [(ngModel)]="selectedDateTime"></ion-datetime>
+    </ion-item>
+  </div>
+  <ion-button color="warning" expand="full" (click)="valider()">Valider</ion-button>
 </ion-content>
