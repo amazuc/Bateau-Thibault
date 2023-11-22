@@ -16,8 +16,7 @@
       <ion-list>
         <ion-radio-group [(ngModel)]="lieuSelect" [ngModelOptions]="{standalone: true}">
           <ion-item *ngFor="let lieu of lieux">
-            <ion-label>{{ lieu.adresse }}</ion-label>
-            <ion-radio [value]="lieu.id"></ion-radio>
+            <ion-radio [value]="lieu.id">{{ lieu.adresse }}</ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>

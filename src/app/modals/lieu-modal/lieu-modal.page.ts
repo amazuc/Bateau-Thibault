@@ -24,7 +24,6 @@ export class LieuModalPage {
     }
 
     valider(){
-        console.log(this.lieuSelect)
         const dataToReturn = {
             lieu: this.lieuSelect,
             // Ajoutez d'autres données si nécessaire

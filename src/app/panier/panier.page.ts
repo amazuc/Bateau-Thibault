@@ -147,7 +147,7 @@ export class PanierPage implements OnInit {
       .then(alert => alert.present());
   }
 
-  getLieu(lieuId: number) {
+  getLieu() {
     const lieu = this.lieux.find(lieu => lieu.id === this.lieuLivraison);
     if (lieu) return lieu.adresse;
     else return "Reselectionnez un lieu"

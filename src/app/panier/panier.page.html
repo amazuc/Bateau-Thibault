@@ -44,7 +44,7 @@
       <ng-container *ngIf="lieuLivraison === 0; else lieuSelected">
         Cliquez pour choisir le lieu de livraison
       </ng-container>
-      <ng-template #lieuSelected>{{ getLieu(lieuLivraison) }}</ng-template>
+      <ng-template #lieuSelected>{{ getLieu() }}</ng-template>
     </ion-text>
   </ion-item>
 
