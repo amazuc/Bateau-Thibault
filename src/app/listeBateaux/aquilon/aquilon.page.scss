@@ -1,5 +1,5 @@
 .image-reduite {
-  max-width: 15%; /* La largeur de l'image sera réduite à 50% de la largeur de son conteneur */
+  width: 15%; /* La largeur de l'image sera réduite à 50% de la largeur de son conteneur */
   height: auto; /* La hauteur est ajustée de manière proportionnelle à la largeur */
   display: block; /* Pour centrer l'image horizontalement */
   margin: 0 auto; /* Pour centrer l'image horizontalement */
@@ -18,4 +18,10 @@
 
 .titre {
   padding-bottom: 2%;
+}
+
+@media screen and (max-width: 767px) {
+  .image-reduite {
+    width: 50%; /* Réduire la largeur à 50% pour les appareils mobiles */
+  }
 }

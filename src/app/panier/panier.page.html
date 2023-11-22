@@ -10,7 +10,7 @@
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
+
     <ion-title class="ion-text-center">
       <h2>Panier</h2>
     </ion-title>
@@ -59,7 +59,8 @@
     </ion-text>
   </ion-item>
 
-  <ion-button expand="full" (click)="afficherAlerteValiderPanier()" [disabled]="calculerPrixTotal() === '0.00'">Valider
+  <ion-button color="warning" expand="full" (click)="afficherAlerteValiderPanier()"
+    [disabled]="calculerPrixTotal() === '0.00'">Valider
     votre panier</ion-button>
 
 </ion-content>
