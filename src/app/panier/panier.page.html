@@ -1,33 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <!-- Bouton d'accueil -->
-    <ion-buttons slot="start">
-      <ion-button (click)="onGoToHome()">
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+<app-header></app-header>
 
-    <!-- Image centrée -->
-    <ion-title>
-      <h1 class="ion-text-center">Le bateau de Thibault</h1>
-    </ion-title>
 
-    <!-- Lien vers le panier à droite -->
-    <ion-buttons slot="end">
-      <ion-button (click)="onGoToPanier()">
-        <ion-icon slot="icon-only" name="cart"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
 
-  <ion-row class="separator"></ion-row>
-
-  <ion-toolbar class="ion-text-center">
-    <h2>Panier</h2>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onGoBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title class="ion-text-center">
+      <h2>Panier</h2>
+    </ion-title>
+  </ion-toolbar>
+
   <ion-list>
     <ng-container *ngFor="let article of articles">
       <ion-item *ngIf="article.quantite > 0" (click)="modifierQuantite(article.id)">

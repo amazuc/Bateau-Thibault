@@ -25,4 +25,8 @@ export class ProduitsService {
       );
     }
   }
+
+  getDescription(id: number){
+     return this.http.get<{description:string}>('assets/description/'+id+'.json')
+  }
 }

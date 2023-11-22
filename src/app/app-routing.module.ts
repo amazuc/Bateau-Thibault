@@ -94,7 +94,12 @@ const routes: Routes = [
   {
     path: 'produit/:id',
     loadChildren: () => import('./detail-produits/detail-produits.module').then( m => m.DetailProduitsPageModule)
+  },
+  {
+    path: 'information',
+    loadChildren: () => import('./information-produit/information-produit.module').then( m => m.InformationProduitPageModule)
   }
+
 
 ];
 

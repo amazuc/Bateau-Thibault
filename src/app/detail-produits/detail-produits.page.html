@@ -1,42 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <!-- Bouton d'accueil -->
-    <ion-buttons slot="start">
-      <ion-button (click)="onGoToHome()">
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <!-- Image centrée -->
-    <ion-title>
-      <h1 class="ion-text-center">Le bateau de Thibault</h1>
-    </ion-title>
-
-    <!-- Lien vers le panier à droite -->
-    <ion-buttons slot="end">
-      <ion-button (click)="onGoToPanier()">
-        <ion-icon slot="icon-only" name="cart"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-
-  <ion-row class="separator"></ion-row>
-
-  <ion-toolbar class="ion-text-center">
-    <h2>Choisissez vos produits</h2>
-  </ion-toolbar>
-</ion-header>
-
+<app-header></app-header>
+    
 <ion-content>
-  <!-- Liste de boutons pour chaque produit -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onGoBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title class="ion-text-center">
+      <h2>Choisissez vos produits</h2>
+    </ion-title>
+  </ion-toolbar>
   <ion-list>
     <!--(click)="afficherDetailsProduit(produit)"-->
     <ng-container *ngIf="listeProduits$ | async as listeProduits">
-      <ion-item *ngFor="let produit of listeProduits" (click)="ajoutPanier(produit)">
+      <ion-item *ngFor="let produit of listeProduits">
         <!-- Utilisez une grille pour organiser les éléments sur une seule ligne -->
         <ion-grid>
           <ion-row>
-            <ion-col size="4">
+            <ion-col size="4" (click)="loadProduit(produit)">
               <!-- Colonne pour l'image -->
               <div class="cercle">
                 <ion-icon name="fish-outline" class="icon"></ion-icon>
@@ -45,14 +28,14 @@
 
 
             <!-- Colonne pour le nom -->
-            <ion-col size="6">
+            <ion-col size="6" (click)="loadProduit(produit)">
               <ion-label>
                 <h2>{{ produit.name }}</h2>
               </ion-label>
             </ion-col>
 
             <!-- Colonne pour le prix -->
-            <ion-col size="2">
+            <ion-col size="2" (click)="ajoutPanier(produit)">
               <p> <span *ngIf="estDansPanier(produit)">OK</span>
                 {{ produit.price }}€</p>
             </ion-col>

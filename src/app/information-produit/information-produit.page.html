@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onGoBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">
+      <h2>Information sur le produit</h2>
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-card>
+    <ion-img [src]="image"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{ produit.unit }}</ion-card-subtitle>
+      <ion-card-title>{{ produit.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>Prix</ion-label>
+          <ion-text>{{ produit.price }} €</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Disponibilité</ion-label>
+          <ion-text>{{ produit.availability ? 'Disponible' : 'Non disponible' }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Promotion</ion-label>
+          <ion-text>{{ produit.sale ? 'En promotion' : 'Pas de promotion' }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Commentaire</ion-label>
+          <ion-text>{{ produit.comments }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-text>{{ description }}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

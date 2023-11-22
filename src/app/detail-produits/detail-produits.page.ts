@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ProduitsService } from '../services/produit/produits.service';
 import { Produit } from '../interfaces/produit';
 import { Observable, from, map, switchMap } from 'rxjs';
@@ -31,12 +31,8 @@ export class DetailProduitsPage implements OnInit {
     });
   }
 
-  onGoToHome() {
-    this.router.navigate(['/home'])
-  }
-
-  onGoToPanier(){
-    this.router.navigate(['/panier'])
+  onGoBack(){
+    this.router.navigate(['/produits'])
   }
 
   // Ajoute l'objet correspondant à l'ID dans le panier
@@ -46,5 +42,14 @@ export class DetailProduitsPage implements OnInit {
 
   estDansPanier(produit: any): boolean {
     return this.panierService.estDansLePanier(produit)
+  }
+
+  loadProduit(produit: Produit){
+    let navigationExtras: NavigationExtras = {
+      state :{
+        produit:produit
+      }
+    };
+    this.router.navigate(['/information'], navigationExtras);
   }
 }

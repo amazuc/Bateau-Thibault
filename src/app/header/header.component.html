@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton d'accueil -->
+    <ion-buttons slot="start">
+      <ion-button (click)="onGoToHome()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Image centrée -->
+    <ion-title>
+      <h1 class="ion-text-center">Le bateau de Thibault</h1>
+    </ion-title>
+
+    <!-- Lien vers le panier à droite -->
+    <ion-buttons slot="end">
+      <ion-button (click)="onGoToPanier()">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -36,12 +36,8 @@ export class PanierPage implements OnInit {
     this.articles = this.panierService.getPanier()
   }
 
-  onGoToHome() {
-    this.router.navigate(['/home'])
-  }
-
-  onGoToPanier(){
-    this.router.navigate(['/panier'])
+  onGoBack(){
+    this.router.navigate(['/produits'])
   }
 
   async modifierQuantite(articleId: number) {
@@ -187,7 +183,7 @@ export class PanierPage implements OnInit {
 
   getDate() {
     const options = { weekday: 'long', day: 'numeric', month: 'long' } as Intl.DateTimeFormatOptions;
-  const dateFormatee = new Date(this.dateLivraison).toLocaleDateString('fr-FR', options);
-  return dateFormatee.charAt(0).toUpperCase() + dateFormatee.slice(1);
+    const dateFormatee = new Date(this.dateLivraison).toLocaleDateString('fr-FR', options);
+    return dateFormatee.charAt(0).toUpperCase() + dateFormatee.slice(1);
   }
 }

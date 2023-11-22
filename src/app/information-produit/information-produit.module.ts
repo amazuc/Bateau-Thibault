@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProduitsPageRoutingModule } from './produits-routing.module';
+import { InformationProduitPageRoutingModule } from './information-produit-routing.module';
 
-import { ProduitsPage } from './produits.page';
+import { InformationProduitPage } from './information-produit.page';
 
 import { SharedModule } from '../shared/shared.module'
 
@@ -15,9 +15,9 @@ import { SharedModule } from '../shared/shared.module'
     CommonModule,
     FormsModule,
     IonicModule,
-    ProduitsPageRoutingModule,
+    InformationProduitPageRoutingModule,
     SharedModule
   ],
-  declarations: [ProduitsPage]
+  declarations: [InformationProduitPage]
 })
-export class ProduitsPageModule {}
+export class InformationProduitPageModule {}

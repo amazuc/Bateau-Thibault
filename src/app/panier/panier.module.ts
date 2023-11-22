@@ -8,12 +8,15 @@ import { PanierPageRoutingModule } from './panier-routing.module';
 
 import { PanierPage } from './panier.page';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PanierPageRoutingModule
+    PanierPageRoutingModule,
+    SharedModule
   ],
   declarations: [PanierPage]
 })
