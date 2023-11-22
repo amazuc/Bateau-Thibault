@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Quantité
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="close()">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="product-name">
+        Veuillez choisir la quantité pour :<br>
+        {{ produit.name }}
+    </div>
+    <div class="quantity-selector">
+        <ion-button (click)="decreaseQuantity()" fill="clear" color="dark">
+          <ion-icon name="remove"></ion-icon>
+        </ion-button>
+        <ion-input [(ngModel)]="selectedQuantity"  type="text" pattern="[0-9]*"></ion-input>
+        <ion-button (click)="increaseQuantity()" fill="clear" color="dark">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </div>
+      <ion-button expand="full" (click)="valider()">Valider</ion-button>
+</ion-content>

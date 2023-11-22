@@ -23,8 +23,15 @@ export class PanierService {
     }
   }
 
-  public getPanier() {
-    return this.panierSubject.getValue();
+  public async getPanier(): Promise<Produit[]> {
+    const panier = await this.storage.get('panier');
+    if (panier !== undefined) {
+      return Promise.resolve(panier);
+    } else {
+      // Gérez le cas où le panier est indéfini, peut-être en le chargeant à partir d'une source
+      // ou en renvoyant une valeur par défaut
+      return Promise.resolve([]);
+    }
   }
 
   toggleProduitDansPanier(produit: any) {

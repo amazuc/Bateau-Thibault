@@ -3,6 +3,12 @@ import { AlertController, AlertInput } from '@ionic/angular';
 import { PanierService } from '../services/panier/panier.service';
 import { Produit } from '../interfaces/produit';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { QuantiteModalPage } from '../modals/quantite-modal/quantite-modal.page';
+import { LieuModalPage } from '../modals/lieu-modal/lieu-modal.page';
+import { DateModalPage } from '../modals/date-modal/date-modal.page';
+import { Lieu } from '../interfaces/lieu';
+import { LieuxService } from '../services/lieux/lieux.service';
 
 @Component({
   selector: 'app-panier',
@@ -16,140 +22,106 @@ export class PanierPage implements OnInit {
 
   articles: Produit[] = []
 
-  lieux = [
-    {
-      id: 1,
-      adresse: 'Adresse 1'
-    },
-    {
-      id: 2,
-      adresse: 'Adresse 2'
-    },
-    // Ajoutez d'autres articles ici
-  ];
-
   lieuLivraison = 0;
 
-  constructor(private alertController: AlertController, private panierService : PanierService, private router : Router) { }
+  lieux: Lieu[] = []
+
+  constructor(private lieuxService: LieuxService, private modalController: ModalController, private alertController: AlertController, private panierService : PanierService, private router : Router) { }
 
   ngOnInit(): void {
-    this.articles = this.panierService.getPanier()
+    this.chargerProduits()
+    this.lieuxService.getLieux().subscribe(data =>{
+      this.lieux = data
+    })
+  }
+
+  async chargerProduits() {
+    try {
+      const panier: Produit[] = await this.panierService.getPanier();
+      this.articles = panier
+    } catch (erreur) {
+      console.error("Erreur lors du chargement des produits :", erreur);
+    }
   }
 
   onGoBack(){
     this.router.navigate(['/produits'])
   }
 
+  ionViewWillEnter() {
+    this.chargerProduits()
+  }
+
   async modifierQuantite(articleId: number) {
-    const article = this.articles.find(article => article.id === articleId);
-    var quantite = ""
-    if (article)
-      quantite = article.quantite.toString()
-    const alert = await this.alertController.create({
-      header: 'Modifier la quantité',
-      inputs: [
-        {
-          name: 'nouvelleQuantite',
-          type: 'number',
-          value: quantite, // Valeur actuelle de la quantité
-          placeholder: 'Nouvelle quantité',
-        },
-      ],
-      buttons: [
-        {
-          text: 'Annuler',
-          role: 'cancel',
-        },
-        {
-          text: 'Enregistrer',
-          handler: (data) => {
-            const nouvelleQuantite = parseInt(data.nouvelleQuantite, 10);
-            if (!isNaN(nouvelleQuantite) && nouvelleQuantite >= 0 && article) {
-              article.quantite = nouvelleQuantite;
-              this.panierService.modifierQuantite(articleId, nouvelleQuantite)
-            }
-          },
-        },
-      ],
-    });
-
-    await alert.present();
-
+    this.openQuantiteModal(articleId)
   }
 
   calculerPrixTotal() {
     return this.articles.reduce((total, article) => total + article.price * article.quantite, 0).toFixed(2);
   }
 
-  ouvrirLieuLivraison() {
-    const lieuOptions = this.lieux.map(lieu => ({
-      type: 'radio',
-      label: lieu.adresse,
-      value: lieu.id.toString(), // Assurez-vous que la valeur est une chaîne
-      checked: false, // Mettez à true pour cocher par défaut un élément
-    })) as AlertInput[];
-
-    this.alertController
-      .create({
-        header: 'Sélectionner le lieu de livraison',
-        inputs: lieuOptions,
-        buttons: [
-          {
-            text: 'Annuler',
-            role: 'cancel',
-          },
-          {
-            text: 'Valider',
-            handler: (lieuId) => {
-              // Logique à exécuter lorsque l'utilisateur clique sur "Valider" (lieu de livraison sélectionné)
-              const selectedLieu = this.lieux.find(lieu => lieu.id.toString() === lieuId);
-              if (selectedLieu) {
-                this.lieuLivraison = selectedLieu.id;
-              }
-            },
-          },
-        ],
-      })
-      .then(alert => alert.present());
-  }
-
-
-
   ouvrirDateLivraison() {
-    const currentDate = new Date();
-    const currentDateString = currentDate.toISOString();
-    this.alertController
-      .create({
-        header: 'Sélectionner la date et l\'heure de livraison',
-        inputs: [
-          {
-            name: 'date',
-            type: 'date',
-            min: currentDateString, // Empêche de sélectionner une date antérieure à aujourd'hui
-          },
-          {
-            name: 'heure',
-            type: 'time',
-          },
-        ],
-        buttons: [
-          {
-            text: 'Annuler',
-            role: 'cancel',
-          },
-          {
-            text: 'Valider',
-            handler: (data) => {
-              // Logique à exécuter lorsque l'utilisateur clique sur "Valider" (date et heure de livraison sélectionnées)
-              this.dateLivraison = data.date;
-              this.heureLivraison = data.heure;
-            },
-          },
-        ],
-      })
-      .then(alert => alert.present());
+    this.openDateModal();
+}
+
+  ouvrirLieuLivraison() {
+      this.openLieuModal()
   }
 
+  async openQuantiteModal(id:number) {
+    const modal = await this.modalController.create({
+      component: QuantiteModalPage,
+      cssClass: 'my-modal-class',
+      componentProps: {
+        produit: this.articles[id]
+      }
+    });
+
+    modal.onDidDismiss().then((data) => {
+      if (data && data.data) {
+        this.articles[id].quantite = data.data.quantite;
+      }
+    });
+  
+    await modal.present();
+  }
+
+  async openLieuModal() {
+    const modal = await this.modalController.create({
+      component: LieuModalPage,
+      cssClass: 'my-modal-class',
+      componentProps: {
+        lieu: this.lieuLivraison
+      }
+    });
+
+    modal.onDidDismiss().then((data) => {
+      if (data && data.data) {
+        this.lieuLivraison = data.data.lieu; 
+      }
+    });
+    await modal.present();
+  }
+
+  async openDateModal() {
+    const modal = await this.modalController.create({
+      component: DateModalPage,
+      cssClass: 'my-modal-class',
+      componentProps: {
+        date: this.dateLivraison,
+        heure: this.heureLivraison
+      }
+    });
+
+    modal.onDidDismiss().then((data) => {
+      if (data && data.data) {
+        this.dateLivraison = data.data.date;
+        this.heureLivraison = data.data.heure;
+      }
+    });
+  
+    await modal.present();
+  }
 
   afficherAlerteValiderPanier() {
     const prixTotal = this.calculerPrixTotal(); // Remplacez par votre propre logique pour calculer le prix total

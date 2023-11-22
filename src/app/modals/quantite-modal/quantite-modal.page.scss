@@ -1,0 +1,33 @@
+/* my-modal.component.scss */
+
+.modal-title {
+    text-align: center;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.product-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.selected-quantity {
+    font-size: 1.5em;
+    margin: 0 10px;
+}
+
+ion-input {
+    width: 50px;
+    font-size: 14px;
+    text-align: center;
+}

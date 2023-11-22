@@ -7,10 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [ IonicStorageModule.forRoot(), BrowserModule, IonicModule.forRoot({ swipeBackEnabled: true }), AppRoutingModule, HttpClientModule],
+  imports: [ IonicStorageModule.forRoot(), BrowserModule, IonicModule.forRoot({ swipeBackEnabled: true }), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler },{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

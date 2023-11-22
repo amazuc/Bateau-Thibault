@@ -17,8 +17,8 @@
   </ion-toolbar>
 
   <ion-list>
-    <ng-container *ngFor="let article of articles">
-      <ion-item *ngIf="article.quantite > 0" (click)="modifierQuantite(article.id)">
+    <ng-container *ngFor="let article of articles; let index = index">
+      <ion-item *ngIf="article.quantite > 0" (click)="modifierQuantite(index)">
         <div class="cercle">
           <ion-icon name="fish-outline" class="icon"></ion-icon>
         </div>
