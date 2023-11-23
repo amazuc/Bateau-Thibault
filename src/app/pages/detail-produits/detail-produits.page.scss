@@ -27,3 +27,20 @@ ion-row {
   height: 100%;
 }
 
+/* Styles pour les boutons personnalisés */
+.custom-button {
+  font-size: 2rem; /* Ajustez la taille de la police selon vos besoins */
+  --background:transparent;
+}
+
+/* Styles pour l'espace entre la quantité et les boutons */
+.quantite-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Ajoutez l'espace que vous souhaitez entre la quantité et les boutons */
+}
+
+/* Styles pour la quantité */
+.quantite {
+  font-size: 1.2rem; /* Ajustez la taille de la police selon vos besoins */
+}

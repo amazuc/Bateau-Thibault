@@ -98,7 +98,12 @@ const routes: Routes = [
   {
     path: 'information',
     loadChildren: () => import('./pages/information-produit/information-produit.module').then( m => m.InformationProduitPageModule)
+  },
+  {
+    path: 'info',
+    loadChildren: () => import('./pages/information/information.module').then( m => m.InformationPageModule)
   }
+
 
 
 ];

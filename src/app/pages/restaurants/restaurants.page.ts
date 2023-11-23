@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurants',
@@ -14,23 +14,48 @@ export class RestaurantsPage implements OnInit {
   }
 
   onGoToFous() {
-    this.router.navigate(['/fous'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"fou"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToGascon() {
-    this.router.navigate(['/gascon'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"gascons"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToLandais() {
-    this.router.navigate(['/landais'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"landais"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToSommelier() {
-    this.router.navigate(['/sommelier'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"sommelier"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToVilla() {
-    this.router.navigate(['/villa'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"villa"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToContact() {

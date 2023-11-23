@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-bateaux',
@@ -18,19 +18,39 @@ export class BateauxPage implements OnInit {
   }
 
   onGoToBrise() {
-    this.router.navigate(['/delabrise'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"brise"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToAquilon() {
-    this.router.navigate(['/aquilon'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"aquilon"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToGast() {
-    this.router.navigate(['/gast'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"gast"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToSaphir() {
-    this.router.navigate(['/saphir'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"saphir"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
 }

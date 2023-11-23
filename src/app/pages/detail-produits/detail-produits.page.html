@@ -35,7 +35,7 @@
 
 
             <!-- Colonne pour le nom -->
-            <ion-col size="4" (click)="loadProduit(produit)">
+            <ion-col size="5" (click)="loadProduit(produit)">
               <ion-label>
                 <h2>{{ produit.name }}</h2>
               </ion-label>
@@ -47,13 +47,13 @@
             </ion-col>
 
             <!-- Colonne pour la quantité -->
-            <ion-col size="4">
+            <ion-col size="3">
               <div class="quantite-controls">
-                <button ion-button icon-only (click)="diminuerQuantite(produit)">
+                <button ion-button icon-only class="custom-button" (click)="diminuerQuantite(produit)">
                   <ion-icon name="remove-circle-outline"></ion-icon>
                 </button>
-                <span>{{quantiteProduit(produit)}}</span>
-                <button ion-button icon-only (click)="augmenterQuantite(produit)">
+                <span class="quantite">{{quantiteProduit(produit)}}</span>
+                <button ion-button icon-only class="custom-button" (click)="augmenterQuantite(produit)">
                   <ion-icon name="add-circle-outline"></ion-icon>
                 </button>
               </div>

@@ -13,11 +13,11 @@ export class HeaderComponent  implements OnInit {
   ngOnInit() {}
 
   onGoToHome() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home'], { replaceUrl: true })
   }
 
   onGoToPanier(){
-    this.router.navigate(['/panier'])
+    this.router.navigate(['/panier'], { replaceUrl: true })
   }
 
 }
