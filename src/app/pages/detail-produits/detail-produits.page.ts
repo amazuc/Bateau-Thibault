@@ -35,13 +35,13 @@ export class DetailProduitsPage implements OnInit {
     this.router.navigate(['/produits'])
   }
 
-  // Ajoute l'objet correspondant à l'ID dans le panier
-  ajoutPanier(produit: Produit): void {
-    this.panierService.toggleProduitDansPanier(produit)
+
+  estDansPanier(produit: Produit): boolean {
+    return this.panierService.estDansLePanier(produit)
   }
 
-  estDansPanier(produit: any): boolean {
-    return this.panierService.estDansLePanier(produit)
+  quantiteProduit(produit: Produit): number{
+    return this.panierService.quantiteProduit(produit)
   }
 
   loadProduit(produit: Produit){
@@ -51,5 +51,16 @@ export class DetailProduitsPage implements OnInit {
       }
     };
     this.router.navigate(['/information'], navigationExtras);
+  }
+
+  diminuerQuantite(produit: any) {
+    if (produit.quantite > 0) {
+      
+      this.panierService.enleverDuPanier(produit)
+    }
+  }
+  
+  augmenterQuantite(produit: any) {
+    this.panierService.ajouterDansLePanier(produit)
   }
 }

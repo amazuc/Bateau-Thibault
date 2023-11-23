@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, from, map, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Produit } from 'src/app/interfaces/produit';
 import { Storage } from '@ionic/storage-angular';
 
@@ -28,27 +28,52 @@ export class PanierService {
     if (panier !== undefined) {
       return Promise.resolve(panier);
     } else {
-      // Gérez le cas où le panier est indéfini, peut-être en le chargeant à partir d'une source
-      // ou en renvoyant une valeur par défaut
       return Promise.resolve([]);
     }
   }
 
-  toggleProduitDansPanier(produit: any) {
+  ajouterDansLePanier(produit: Produit) {
     const panierActuel = this.panierSubject.value;
     const produitIndex = panierActuel.findIndex(item => item.id === produit.id);
-
+  
     if (produitIndex === -1) {
-      // Si le produit n'est pas dans le panier, l'ajouter
-      const nouveauPanier = [...panierActuel, produit];
+      // Si le produit n'est pas dans le panier, l'ajouter avec une quantité de 1
+      const nouveauPanierItem = { ...produit, quantite: 1 };
+      const nouveauPanier = [...panierActuel, nouveauPanierItem];
       this.panierSubject.next(nouveauPanier);
     } else {
-      // Si le produit est déjà dans le panier, le retirer
-      const nouveauPanier = panierActuel.filter(item => item.id !== produit.id);
+      // Si le produit est déjà dans le panier, augmenter la quantité de 1
+      const nouveauPanier = panierActuel.map(item => {
+        if (item.id === produit.id) {
+          return { ...item, quantite: item.quantite + 1 };
+        }
+        return item;
+      });
       this.panierSubject.next(nouveauPanier);
     }
-
+  
     this.sauvegarderPanier();
+  }
+
+  enleverDuPanier(produit: Produit) {
+    const panierActuel = this.panierSubject.value;
+    const produitIndex = panierActuel.findIndex(item => item.id === produit.id);
+  
+    if (produitIndex !== -1) {
+      // Si le produit est dans le panier, diminuer la quantité de 1
+      const nouveauPanier = panierActuel.map(item => {
+        if (item.id === produit.id) {
+          return { ...item, quantite: item.quantite - 1 };
+        }
+        return item;
+      });
+  
+      // Filtrer les produits avec une quantité supérieure à 0
+      const panierFiltre = nouveauPanier.filter(item => item.quantite > 0);
+  
+      this.panierSubject.next(panierFiltre);
+      this.sauvegarderPanier();
+    }
   }
 
   modifierQuantite(idProduit: number, quantite: number) {
@@ -72,9 +97,16 @@ export class PanierService {
     }
   }
 
-  estDansLePanier(produit: any): boolean {
+  estDansLePanier(produit: Produit): boolean {
     const panierActuel = this.panierSubject.value;
     return panierActuel.some(item => item.id === produit.id);
+  }
+
+  quantiteProduit(produit: Produit): number {
+    const panierActuel = this.panierSubject.value;
+    const produitDansPanier = panierActuel.find(item => item.id === produit.id);
+  
+    return produitDansPanier ? produitDansPanier.quantite : 0;
   }
 
   viderPanier(): void {

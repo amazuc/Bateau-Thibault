@@ -1,10 +1,13 @@
 [
     {
         "id": 1,
-        "adresse": "Adresse 1"
+        "nom": "Bistrot des Gascons",
+        "adresse": "26 Avenue de Tourville, 75007 Paris"
     },
     {
         "id": 2,
-        "adresse": "Adresse 2"
+        "nom": "Bistrot de Marius",
+        "adresse": "6 Avenue George V"
     }
 ]
+

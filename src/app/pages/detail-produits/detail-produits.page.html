@@ -1,5 +1,5 @@
 <app-header></app-header>
-    
+
 <ion-content>
   <ion-toolbar class="custom-background">
     <ion-buttons slot="start">
@@ -7,7 +7,7 @@
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
+
     <ion-title class="ion-text-center">
       <h2>Choisissez vos produits</h2>
     </ion-title>
@@ -19,14 +19,14 @@
     </ion-buttons>
   </ion-toolbar>
 
-  
+
   <ion-list>
     <ng-container *ngIf="listeProduits$ | async as listeProduits">
       <ion-item *ngFor="let produit of listeProduits">
         <!-- Utilisez une grille pour organiser les éléments sur une seule ligne -->
         <ion-grid>
           <ion-row>
-            <ion-col size="4" (click)="loadProduit(produit)">
+            <ion-col size="3" (click)="loadProduit(produit)">
               <!-- Colonne pour l'image -->
               <div class="cercle">
                 <ion-icon name="fish-outline" class="icon"></ion-icon>
@@ -35,16 +35,28 @@
 
 
             <!-- Colonne pour le nom -->
-            <ion-col size="6" (click)="loadProduit(produit)">
+            <ion-col size="4" (click)="loadProduit(produit)">
               <ion-label>
                 <h2>{{ produit.name }}</h2>
               </ion-label>
             </ion-col>
 
             <!-- Colonne pour le prix -->
-            <ion-col size="2" (click)="ajoutPanier(produit)">
-              <p> <span *ngIf="estDansPanier(produit)">OK</span>
-                {{ produit.price }}€</p>
+            <ion-col size="1">
+                <p>{{ produit.price }}€</p>
+            </ion-col>
+
+            <!-- Colonne pour la quantité -->
+            <ion-col size="4">
+              <div class="quantite-controls">
+                <button ion-button icon-only (click)="diminuerQuantite(produit)">
+                  <ion-icon name="remove-circle-outline"></ion-icon>
+                </button>
+                <span>{{quantiteProduit(produit)}}</span>
+                <button ion-button icon-only (click)="augmenterQuantite(produit)">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                </button>
+              </div>
             </ion-col>
           </ion-row>
         </ion-grid>

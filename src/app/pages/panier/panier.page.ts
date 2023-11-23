@@ -140,6 +140,8 @@ export class PanierPage implements OnInit {
             text: 'Oui',
             handler: () => {
               this.articles.map(article => (article.quantite = 0))
+              this.panierService.viderPanier()
+              this.router.navigate(['./home'])
             },
           },
         ],
