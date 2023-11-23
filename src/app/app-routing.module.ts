@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,91 +13,91 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   },
   {
     path: 'produits',
-    loadChildren: () => import('./produits/produits.module').then( m => m.ProduitsPageModule)
+    loadChildren: () => import('./pages/produits/produits.module').then( m => m.ProduitsPageModule)
   },
   {
     path: 'bateaux',
-    loadChildren: () => import('./bateaux/bateaux.module').then( m => m.BateauxPageModule)
+    loadChildren: () => import('./pages/bateaux/bateaux.module').then( m => m.BateauxPageModule)
   },
   {
     path: 'restaurants',
-    loadChildren: () => import('./restaurants/restaurants.module').then( m => m.RestaurantsPageModule)
+    loadChildren: () => import('./pages/restaurants/restaurants.module').then( m => m.RestaurantsPageModule)
   },
   {
     path: 'recettes',
-    loadChildren: () => import('./recettes/recettes.module').then( m => m.RecettesPageModule)
+    loadChildren: () => import('./pages/recettes/recettes.module').then( m => m.RecettesPageModule)
   },
   {
     path: 'delabrise',
-    loadChildren: () => import('./listeBateaux/delabrise/delabrise.module').then( m => m.DelabrisePageModule)
+    loadChildren: () => import('./pages/listeBateaux/delabrise/delabrise.module').then( m => m.DelabrisePageModule)
   },
   {
     path: 'saphir',
-    loadChildren: () => import('./listeBateaux/saphir/saphir.module').then( m => m.SaphirPageModule)
+    loadChildren: () => import('./pages/listeBateaux/saphir/saphir.module').then( m => m.SaphirPageModule)
   },
   {
     path: 'gast',
-    loadChildren: () => import('./listeBateaux/gast/gast.module').then( m => m.GastPageModule)
+    loadChildren: () => import('./pages/listeBateaux/gast/gast.module').then( m => m.GastPageModule)
   },
   {
     path: 'aquilon',
-    loadChildren: () => import('./listeBateaux/aquilon/aquilon.module').then( m => m.AquilonPageModule)
+    loadChildren: () => import('./pages/listeBateaux/aquilon/aquilon.module').then( m => m.AquilonPageModule)
   },
   {
     path: 'gascon',
-    loadChildren: () => import('./listeRestaurants/gascon/gascon.module').then( m => m.GasconPageModule)
+    loadChildren: () => import('./pages/listeRestaurants/gascon/gascon.module').then( m => m.GasconPageModule)
   },
   {
     path: 'fous',
-    loadChildren: () => import('./listeRestaurants/fous/fous.module').then( m => m.FousPageModule)
+    loadChildren: () => import('./pages/listeRestaurants/fous/fous.module').then( m => m.FousPageModule)
   },
   {
     path: 'landais',
-    loadChildren: () => import('./listeRestaurants/landais/landais.module').then( m => m.LandaisPageModule)
+    loadChildren: () => import('./pages/listeRestaurants/landais/landais.module').then( m => m.LandaisPageModule)
   },
   {
     path: 'villa',
-    loadChildren: () => import('./listeRestaurants/villa/villa.module').then( m => m.VillaPageModule)
+    loadChildren: () => import('./pages/listeRestaurants/villa/villa.module').then( m => m.VillaPageModule)
   },
   {
     path: 'sommelier',
-    loadChildren: () => import('./listeRestaurants/sommelier/sommelier.module').then( m => m.SommelierPageModule)
+    loadChildren: () => import('./pages/listeRestaurants/sommelier/sommelier.module').then( m => m.SommelierPageModule)
   },
   {
     path: 'homard',
-    loadChildren: () => import('./listeRecettes/homard/homard.module').then( m => m.HomardPageModule)
+    loadChildren: () => import('./pages/listeRecettes/homard/homard.module').then( m => m.HomardPageModule)
   },
   {
     path: 'jacques',
-    loadChildren: () => import('./listeRecettes/jacques/jacques.module').then( m => m.JacquesPageModule)
+    loadChildren: () => import('./pages/listeRecettes/jacques/jacques.module').then( m => m.JacquesPageModule)
   },
   {
     path: 'bar',
-    loadChildren: () => import('./listeRecettes/bar/bar.module').then( m => m.BarPageModule)
+    loadChildren: () => import('./pages/listeRecettes/bar/bar.module').then( m => m.BarPageModule)
   },
   {
     path: 'tourteau',
-    loadChildren: () => import('./listeRecettes/tourteau/tourteau.module').then( m => m.TourteauPageModule)
+    loadChildren: () => import('./pages/listeRecettes/tourteau/tourteau.module').then( m => m.TourteauPageModule)
   },
   {
     path: 'recette',
-    loadChildren: () => import('./listeRecettes/recette/recette.module').then( m => m.RecettePageModule)
+    loadChildren: () => import('./pages/listeRecettes/recette/recette.module').then( m => m.RecettePageModule)
   },
   {
     path: 'panier',
-    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+    loadChildren: () => import('./pages/panier/panier.module').then( m => m.PanierPageModule)
   },
   {
     path: 'produit/:id',
-    loadChildren: () => import('./detail-produits/detail-produits.module').then( m => m.DetailProduitsPageModule)
+    loadChildren: () => import('./pages/detail-produits/detail-produits.module').then( m => m.DetailProduitsPageModule)
   },
   {
     path: 'information',
-    loadChildren: () => import('./information-produit/information-produit.module').then( m => m.InformationProduitPageModule)
+    loadChildren: () => import('./pages/information-produit/information-produit.module').then( m => m.InformationProduitPageModule)
   }
 
 

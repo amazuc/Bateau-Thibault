@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PanierPageRoutingModule } from './panier-routing.module';
+import { ProduitsPageRoutingModule } from './produits-routing.module';
 
-import { PanierPage } from './panier.page';
+import { ProduitsPage } from './produits.page';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../module/shared/shared.module'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PanierPageRoutingModule,
+    ProduitsPageRoutingModule,
     SharedModule
   ],
-  declarations: [PanierPage]
+  declarations: [ProduitsPage]
 })
-export class PanierPageModule {}
+export class ProduitsPageModule {}

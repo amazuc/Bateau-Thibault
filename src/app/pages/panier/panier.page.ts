@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, AlertInput } from '@ionic/angular';
-import { PanierService } from '../services/panier/panier.service';
-import { Produit } from '../interfaces/produit';
+import { AlertController } from '@ionic/angular';
+import { PanierService } from '../../services/panier/panier.service';
+import { Produit } from '../../interfaces/produit';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { QuantiteModalPage } from '../modals/quantite-modal/quantite-modal.page';
-import { LieuModalPage } from '../modals/lieu-modal/lieu-modal.page';
-import { DateModalPage } from '../modals/date-modal/date-modal.page';
-import { Lieu } from '../interfaces/lieu';
-import { LieuxService } from '../services/lieux/lieux.service';
+import { QuantiteModalPage } from '../../modals/quantite-modal/quantite-modal.page';
+import { LieuModalPage } from '../../modals/lieu-modal/lieu-modal.page';
+import { DateModalPage } from '../../modals/date-modal/date-modal.page';
+import { Lieu } from '../../interfaces/lieu';
+import { LieuxService } from '../../services/lieux/lieux.service';
 
 @Component({
   selector: 'app-panier',
@@ -106,7 +106,7 @@ export class PanierPage implements OnInit {
   async openDateModal() {
     const modal = await this.modalController.create({
       component: DateModalPage,
-      cssClass: 'my-modal-class',
+      cssClass: 'my-modal-date',
       componentProps: {
         date: this.dateLivraison,
         heure: this.heureLivraison

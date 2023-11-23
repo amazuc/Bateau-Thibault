@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { ProduitsService } from '../services/produit/produits.service';
-import { Produit } from '../interfaces/produit';
+import { ProduitsService } from '../../services/produit/produits.service';
+import { Produit } from '../../interfaces/produit';
 import { Observable, from, map, switchMap } from 'rxjs';
 import { Storage } from '@ionic/storage-angular';
-import { PanierService } from '../services/panier/panier.service';
+import { PanierService } from '../../services/panier/panier.service';
 
 @Component({
   selector: 'app-detail-produits',

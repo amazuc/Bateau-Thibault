@@ -8,7 +8,7 @@ import { InformationProduitPageRoutingModule } from './information-produit-routi
 
 import { InformationProduitPage } from './information-produit.page';
 
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../../module/shared/shared.module'
 
 @NgModule({
   imports: [

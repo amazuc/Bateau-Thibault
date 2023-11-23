@@ -13,6 +13,10 @@ export class ProduitsPage implements OnInit {
   ngOnInit() {
   }
 
+  onGoToHome() {
+    this.router.navigate(['./home'])
+  }
+
   onGoToDetail(idProduit: number) {
     this.router.navigate(['/produit/' + idProduit])
   }

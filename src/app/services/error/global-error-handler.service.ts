@@ -1,5 +1,6 @@
 // global-error-handler.service.ts
 import { Injectable, ErrorHandler } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class GlobalErrorHandler implements ErrorHandler {
 
-  constructor(private toastController: ToastController) {}
+  constructor(private toastController: ToastController, private router: Router) {}
 
   handleError(error: any): void {
     // Log or handle the error as needed
@@ -15,6 +16,7 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     // Afficher un toast générique pour toutes les erreurs
     this.afficherToast('Votre requête est actuellement indisponible, veuillez réessayer ultérieurement.');
+    this.router.navigate(['./home'])
   }
 
   async afficherToast(message: string) {
