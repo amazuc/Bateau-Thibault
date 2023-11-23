@@ -26,23 +26,54 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 ion-modal.my-modal-class::part(content) {
-    --height: 50%;
-    position: absolute;
-    top: 5%;
-    --width: 50%;
-    border-radius: 25px;
-    display: block;
- }
+  --height: 50%;
+  position: absolute;
+  top: 5%;
+  --width: 50%;
+  border-radius: 25px;
+  display: block;
+}
 
- body {
+body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-h1, h2, h, b, p, em,ion-item,ion-title,ion-card-subtitle,ion-card-title  {
+h1,
+h2,
+h,
+b,
+p,
+em,
+ion-item,
+ion-title,
+ion-card-subtitle,
+ion-card-title {
   font-family: Helvetica, Arial, sans-serif;
   color: white;
 }
 
 ion-content {
-  --ion-background-color: #0047AB;
+  --background: linear-gradient(#4ac5ed, #f4c8c8);
+}
+
+
+ion-toolbar,
+ion-row,
+ion-list,
+ion-item,
+ion-item-divider {
+  --ion-background-color: transparent;
+}
+
+ion-item,
+ion-item-divider {
+  --border-color: #ffffff;
+}
+
+ion-icon {
+  color: white;
+}
+
+.custom-background {
+  --ion-background-color: #3fa0c0 !important;
 }

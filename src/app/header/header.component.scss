@@ -1,3 +1,8 @@
 h1{
-  color: black;
+  color: white;
+}
+
+.new-background-color{
+  --background: linear-gradient(to top, #2f84a0, #b2a531) !important;
+  color: white;
 }

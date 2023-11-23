@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content class="ion-padding">
-  <ion-toolbar>
+  <ion-toolbar class="custom-background">
     <ion-buttons slot="start">
       <ion-button (click)="onGoBack()">
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
@@ -11,6 +11,12 @@
     <ion-title class="ion-text-center">
       <h2>Information sur le produit</h2>
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="true" style="visibility: hidden; opacity: 0;">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 
   <ion-card>

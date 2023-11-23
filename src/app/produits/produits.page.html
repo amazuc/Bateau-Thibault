@@ -1,7 +1,23 @@
 <app-header></app-header>
 
 <ion-content>
-  <h2 class="ion-text-center">Choisissez vos produits</h2>
+  <ion-toolbar class="custom-background">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title class="ion-text-center">
+      <h2>Choisissez vos produits</h2>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="true" style="visibility: hidden; opacity: 0;">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 
   <div class="wrapper" (click)="onGoToDetail(0)">
     <div class="ion-activatable ripple-parent rounded-rectangle">
