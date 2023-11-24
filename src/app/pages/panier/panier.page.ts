@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { PanierService } from '../../services/panier/panier.service';
 import { Produit } from '../../interfaces/produit';
 import { Router } from '@angular/router';
@@ -26,7 +26,7 @@ export class PanierPage implements OnInit {
 
   lieux: Lieu[] = []
 
-  constructor(private lieuxService: LieuxService, private modalController: ModalController, private alertController: AlertController, private panierService : PanierService, private router : Router) { }
+  constructor(private toastController: ToastController, private lieuxService: LieuxService, private modalController: ModalController, private alertController: AlertController, private panierService : PanierService, private router : Router) { }
 
   ngOnInit(): void {
     this.chargerProduits()
@@ -141,6 +141,7 @@ export class PanierPage implements OnInit {
             handler: () => {
               this.articles.map(article => (article.quantite = 0))
               this.panierService.viderPanier()
+              this.afficherToast();
               this.router.navigate(['./home'])
             },
           },
@@ -159,5 +160,25 @@ export class PanierPage implements OnInit {
     const options = { weekday: 'long', day: 'numeric', month: 'long' } as Intl.DateTimeFormatOptions;
     const dateFormatee = new Date(this.dateLivraison).toLocaleDateString('fr-FR', options);
     return dateFormatee.charAt(0).toUpperCase() + dateFormatee.slice(1);
+  }
+
+  async afficherToast() {
+    const toast = await this.toastController.create({
+      message: 'Panier validé',
+      duration: 2000, // Durée d'affichage du toast en millisecondes
+      position: 'bottom', // Position du toast ('top', 'bottom', 'middle')
+      color: 'success', // Couleur du toast
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Clic sur OK');
+          }
+        }
+      ]
+    });
+  
+    toast.present();
   }
 }
