@@ -1,6 +1,6 @@
 {
-    "nom": "Brise",
+    "nom": "De la Brise",
     "image" : "assets/wallpapers/bateau-accueil.jpg",
-    "description": "Description",
+    "description": "C'est avec ce bateau que nous pêchons à la ligne, le bar, le maquereau ou encore le lieu jaune",
     "type": "bateau"
 }
