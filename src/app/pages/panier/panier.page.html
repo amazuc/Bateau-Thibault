@@ -12,7 +12,7 @@
     </ion-buttons>
 
     <ion-title class="ion-text-center">
-      <h2>Panier</h2>
+      <h1>Panier</h1>
     </ion-title>
 
     <ion-buttons slot="end">
@@ -48,7 +48,7 @@
     <ion-label>Lieu de livraison:</ion-label>
     <ion-text slot="end">
       <ng-container *ngIf="lieuLivraison === 0; else lieuSelected">
-        Cliquez pour choisir le lieu de livraison
+        à choisir !
       </ng-container>
       <ng-template #lieuSelected>{{ getLieu() }}</ng-template>
     </ion-text>
@@ -59,14 +59,16 @@
     <ion-label>Date de livraison:</ion-label>
     <ion-text slot="end">
       <ng-container *ngIf="dateLivraison === '' && heureLivraison ===''; else dateSelected">
-        Cliquez pour choisir la date de livraison
+        à choisir !
       </ng-container>
       <ng-template #dateSelected>Le {{ getDate() }}, à partir de {{ heureLivraison }}</ng-template>
     </ion-text>
   </ion-item>
 
-  <ion-button color="warning" expand="full" (click)="afficherAlerteValiderPanier()"
-    [disabled]="calculerPrixTotal() === '0.00'">Valider
-    votre panier</ion-button>
+  <div class="valider-panier-container">
+    <ion-button valider-panier-button (click)="afficherAlerteValiderPanier()"
+      [disabled]="calculerPrixTotal() === '0.00'">Valider
+      votre panier</ion-button>
+  </div>
 
 </ion-content>

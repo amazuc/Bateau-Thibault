@@ -29,16 +29,16 @@ ion-modal.my-modal-class::part(content) {
   --height: 50%;
   position: absolute;
   top: 5%;
-  --width: 50%;
+  --width: 75%;
   border-radius: 25px;
   display: block;
 }
 
 ion-modal.my-modal-date::part(content) {
-  --height: 71%;
+  --height: 90%;
   position: absolute;
   top: 5%;
-  --width: 50%;
+  --width: 75%;
   border-radius: 25px;
   display: block;
 }
@@ -47,51 +47,18 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-h1,
-h2,
-h,
-b,
-p,
-em,
-ion-item,
-ion-title,
-ion-card-subtitle,
-ion-card-title {
-  font-family: Helvetica, Arial, sans-serif;
-  color: white;
+h1 {
+  font-size: 1em;
 }
 
-ion-content {
-  --background: linear-gradient(#4ac5ed, #f59696);
+h2 {
+  font-size: 1em;
 }
 
-
-ion-toolbar,
-ion-row,
-ion-list,
-ion-item,
-ion-item-divider,
-ion-card {
-  --ion-background-color: transparent;
+h2 {
+  font-size: 0.6em;
 }
 
-ion-item,
-ion-item-divider {
-  --border-color: #ffffff;
-}
-
-ion-icon {
-  color: white;
-}
-
-.custom-background {
-  --ion-background-color: #3fa0c0 !important;
-}
-
-.modal-background {
-  --ion-background-color: #000000 !important;
-}
-
-ion-card {
-  border: 3px solid #ffffff; /* Couleur blanche (#ffffff), largeur de 1 pixel, style de la bordure solide */
+ion-content{
+  --ion-background-color: #F5F5F5
 }

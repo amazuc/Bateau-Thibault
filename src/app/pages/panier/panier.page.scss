@@ -20,3 +20,23 @@
   /* Couleur de l'icône */
 }
 
+.valider-panier-button {
+  background-color: #4CAF50; /* Couleur de fond verte (vous pouvez ajuster) */
+  color: #ffffff; /* Couleur du texte en blanc (vous pouvez ajuster) */
+  padding: 10px 20px; /* Rembourrage du bouton */
+  border: none; /* Supprimer la bordure du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Taille du texte */
+  cursor: pointer; /* Curseur de souris en pointeur */
+  transition: background-color 0.3s; /* Transition en douceur de la couleur de fond */
+}
+
+.valider-panier-button:hover {
+  background-color: #45a049; /* Couleur de fond verte légèrement plus foncée au survol */
+}
+
+.valider-panier-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
