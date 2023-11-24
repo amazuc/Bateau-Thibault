@@ -1,6 +1,6 @@
 {
     "nom": "Bistrot des Gascons",
     "image" : "assets/bistrot/gascon.jpg",
-    "description": "XXX YYY ZZZ",
+    "description": "Brasserie chic et sobre servant des omelettes, des salades, et des plats typiques de viande ou poisson. Tables sur le trottoir.",
     "type": "restaurant"
 }

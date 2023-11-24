@@ -3,6 +3,8 @@
     height: auto; /* La hauteur est ajustée de manière proportionnelle à la largeur */
     display: block; /* Pour centrer l'image horizontalement */
     margin: 0 auto; /* Pour centrer l'image horizontalement */
+    border-radius: 10px; /* Ajustez le rayon de bordure selon vos préférences */
+  overflow: hidden; /* Pour s'assurer que l'arrondi est appliqué correctement */
     /* Vous pouvez également ajouter d'autres styles ou propriétés ici si nécessaire */
   }
 
@@ -11,6 +13,8 @@
     height: auto; /* La hauteur est ajustée de manière proportionnelle à la largeur */
     display: block; /* Pour centrer l'image horizontalement */
     margin: 0 auto; /* Pour centrer l'image horizontalement */
+    border-radius: 10px; /* Ajustez le rayon de bordure selon vos préférences */
+  overflow: hidden; /* Pour s'assurer que l'arrondi est appliqué correctement */
     /* Vous pouvez également ajouter d'autres styles ou propriétés ici si nécessaire */
   }
   
@@ -38,8 +42,6 @@
 h1{
   font-size: 1.7em;
 }
-
-
   
   
   .titre {
