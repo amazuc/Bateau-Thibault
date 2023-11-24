@@ -26,7 +26,7 @@
         <!-- Utilisez une grille pour organiser les éléments sur une seule ligne -->
         <ion-grid>
           <ion-row>
-            <ion-col size="3" (click)="loadProduit(produit)">
+            <ion-col size="2" (click)="loadProduit(produit)">
               <!-- Colonne pour l'image -->
               <div class="cercle">
                 <ion-icon name="fish-outline" class="icon"></ion-icon>
@@ -35,19 +35,19 @@
 
 
             <!-- Colonne pour le nom -->
-            <ion-col size="5" (click)="loadProduit(produit)">
+            <ion-col size="6" (click)="loadProduit(produit)">
               <ion-label>
                 <h2>{{ produit.name }}</h2>
               </ion-label>
             </ion-col>
 
             <!-- Colonne pour le prix -->
-            <ion-col size="1">
+            <ion-col size="2">
                 <p>{{ produit.price }}€</p>
             </ion-col>
 
             <!-- Colonne pour la quantité -->
-            <ion-col size="3">
+            <ion-col size="2">
               <div class="quantite-controls">
                   <ion-icon name="remove-circle-outline" class="cercle-button" (click)="diminuerQuantite(produit)"></ion-icon>
                 <span class="quantite">{{quantiteProduit(produit)}}</span>
