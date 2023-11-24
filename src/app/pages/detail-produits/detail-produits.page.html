@@ -9,7 +9,7 @@
     </ion-buttons>
 
     <ion-title class="ion-text-center">
-      <h2>Choisissez vos produits</h2>
+      <h1>Choisissez vos produits</h1>
     </ion-title>
 
     <ion-buttons slot="end">
@@ -35,9 +35,9 @@
 
 
             <!-- Colonne pour le nom -->
-            <ion-col size="6" (click)="loadProduit(produit)">
+            <ion-col size="5" (click)="loadProduit(produit)">
               <ion-label>
-                <h2>{{ produit.name }}</h2>
+                <h3>{{ produit.name }}</h3>
               </ion-label>
             </ion-col>
 
@@ -47,7 +47,7 @@
             </ion-col>
 
             <!-- Colonne pour la quantité -->
-            <ion-col size="2">
+            <ion-col size="3">
               <div class="quantite-controls">
                   <ion-icon name="remove-circle-outline" class="cercle-button" (click)="diminuerQuantite(produit)"></ion-icon>
                 <span class="quantite">{{quantiteProduit(produit)}}</span>
