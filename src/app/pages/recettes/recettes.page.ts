@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recettes',
@@ -14,22 +14,47 @@ export class RecettesPage implements OnInit {
   }
 
   onGoToBar() {
-    this.router.navigate(['/bar'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"bar"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToHomard() {
-    this.router.navigate(['/homard'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"homard"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToJacques() {
-    this.router.navigate(['/jacques'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"noix"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToTourteau() {
-    this.router.navigate(['/tourteau'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"linguine"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 
   onGoToRecette() {
-    this.router.navigate(['/recette'])
+    let navigationExtras: NavigationExtras = {
+      state :{
+        data:"recette"
+      }
+    };
+    this.router.navigate(['/info'], navigationExtras)
   }
 }

@@ -10,11 +10,11 @@
 
   <div class="ion-text-center">
     <img [src]="information.image" alt="Description de l'image"
-         [ngClass]="{'image-restaurant': information.type === 'restaurant', 'image-reduite': information.type !== 'restaurant'}">
+         [ngClass]="{'image-restaurant': information.type === 'restaurant'|| information.type === 'recette', 'image-reduite': information.type !== 'restaurant'}">
   </div>
 
-  <div id="container" class="ion-text-center description">
-    <p>{{information.description}}</p>
+  <div id="container" class="ion-text-center">
+    <p *ngFor="let ligne of tableauDescription" class="description-line">{{ ligne }}</p>
   </div>
 
   <div id="container" class="ion-text-center texte">

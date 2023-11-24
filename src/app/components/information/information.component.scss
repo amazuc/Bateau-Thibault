@@ -17,12 +17,26 @@
   .texte p {
     line-height: 0; /* Réduit l'espacement vertical entre les lignes */
   }
+
+  .texte{
+    padding-top: 10em;
+    padding-bottom: 10em;
+    }
   
   .description {
     padding-top: 3%;
     padding-bottom: 3%;
     line-height: 0; /* Réduit l'espacement vertical entre les lignes */
   }
+
+/* Ajoutez ceci dans votre fichier CSS ou SCSS */
+.description-line {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
+
+  
   
   .titre {
     padding-bottom: 2%;

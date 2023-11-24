@@ -49,13 +49,9 @@
             <!-- Colonne pour la quantité -->
             <ion-col size="3">
               <div class="quantite-controls">
-                <button ion-button icon-only class="custom-button" (click)="diminuerQuantite(produit)">
-                  <ion-icon name="remove-circle-outline"></ion-icon>
-                </button>
+                  <ion-icon name="remove-circle-outline" class="cercle-button" (click)="diminuerQuantite(produit)"></ion-icon>
                 <span class="quantite">{{quantiteProduit(produit)}}</span>
-                <button ion-button icon-only class="custom-button" (click)="augmenterQuantite(produit)">
-                  <ion-icon name="add-circle-outline"></ion-icon>
-                </button>
+                  <ion-icon name="add-circle-outline" class="cercle-button" (click)="augmenterQuantite(produit)"></ion-icon>
               </div>
             </ion-col>
           </ion-row>
